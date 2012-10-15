@@ -9,6 +9,13 @@ isJavaLetter ::
 isJavaLetter c =
   c `S.member` javaLetters
 
+isNotJavaLetter ::
+  Integer
+  -> Bool
+isNotJavaLetter =
+  not . isJavaLetter
+
+
 {-
 
 object Letters {
