@@ -1,19 +1,58 @@
+module Language.Java.Letter
+(
+  IsJavaLetter(..)
+) where
+
 import Data.Char
 import Data.Maybe
+import Data.Fixed
+import Data.Word
+import Data.ByteString(ByteString)
+import qualified Data.ByteString as B
 import Data.Set(Set)
 import qualified Data.Set as S
 
-isJavaLetter ::
-  Integer
-  -> Bool
-isJavaLetter c =
-  c `S.member` javaLetters
+class Enum c => IsJavaLetter c where
+  isJavaLetter ::
+    c
+    -> Bool
+  isNotJavaLetter ::
+    c
+    -> Bool
+  isNotJavaLetter =
+    not . isJavaLetter
 
-isNotJavaLetter ::
-  Integer
-  -> Bool
-isNotJavaLetter =
-  not . isJavaLetter
+instance IsJavaLetter Char where
+  isJavaLetter c =
+    ord c `S.member` javaLetters
+
+instance IsJavaLetter Int where
+  isJavaLetter c =
+    c `S.member` javaLetters
+
+instance IsJavaLetter Integer where
+  isJavaLetter c =
+    c `S.member` javaLetters
+
+instance IsJavaLetter Word8 where
+  isJavaLetter c =
+    c `S.member` javaLetters
+
+instance IsJavaLetter Word16 where
+  isJavaLetter c =
+    c `S.member` javaLetters
+
+instance IsJavaLetter Word32 where
+  isJavaLetter c =
+    c `S.member` javaLetters
+
+instance IsJavaLetter Word64 where
+  isJavaLetter c =
+    c `S.member` javaLetters
+
+instance HasResolution a => IsJavaLetter (Fixed a) where
+  isJavaLetter c =
+    c `S.member` javaLetters
 
 
 {-
@@ -42,7 +81,8 @@ object Letters {
 
 -}
 javaLetters ::
-  Set Integer
+  (Num a, Enum a, Ord a) =>
+  Set a
 javaLetters =
   let r = [
             [65..90]
