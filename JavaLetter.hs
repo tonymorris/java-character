@@ -58,23 +58,26 @@ instance HasResolution a => IsJavaLetter (Fixed a) where
 {-
 
 object Letters {
-  def letterGroups(x: List[Char]): List[(Char, Char)] =
+  def letterGroups[A](p: A => Boolean, x: List[A]): List[(A, A)] =
     x match {
       case Nil => Nil
       case _ => {
-        val (r, s) = x dropWhile (!_.isLetter) span (_.isLetter)
+        val (r, s) = x dropWhile (x => !p(x)) span p
         r match {
-          case Nil => letterGroups(s)
-          case h::t => (h, t.reverse.headOption getOrElse h) :: letterGroups(s)
+          case Nil => letterGroups(p, s)
+          case h::t => (h, t.reverse.headOption getOrElse h) :: letterGroups(p, s)
         }
       }
     }
-    
-  def main(args: Array[String]) {
-    val l = (Char.MinValue to Char.MaxValue).toList
-    val r = "[\n  " + (letterGroups(l) map {
-      case (a, b) => "[" + (if(a == b) a.toInt else a.toInt + ".." + b.toInt) + "]"
+
+  def letterGroupsToHaskell[A](p: A => Boolean, x: List[A]): String =
+    "[\n  " + (letterGroups(p, x) map {
+      case (a, b) => "[" + (if(a == b) a else a + ".." + b) + "]"
     }).mkString("\n, ") + "\n]"
+    
+  def main(args: Array[String]) {   
+    val l = (0 to 200000).toList
+    val r = letterGroupsToHaskell[Int](Character.isLetter(_), l) 
     println(r)
   }
 }
