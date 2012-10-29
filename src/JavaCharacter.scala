@@ -1,3 +1,5 @@
+import reflect.Method
+
 object JavaCharacter {
   def letterGroups[A](p: A => Boolean, x: List[A]): List[(A, A)] =
     x match {
@@ -18,8 +20,8 @@ object JavaCharacter {
     
   def main(args: Array[String]) {   
     val l = (0 to 200000).toList
-    val r = letterGroupsToHaskell[Int](Character.isLetter(_), l) 
+    val m = classOf[java.lang.Character].getMethod(args(0), classOf[Int])
+    val r = letterGroupsToHaskell[Int](x => m.invoke(null, x.asInstanceOf[java.lang.Integer]).asInstanceOf[Boolean], l)
     println(r)
   }
 }
-
