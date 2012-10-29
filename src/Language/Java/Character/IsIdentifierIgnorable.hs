@@ -1,3 +1,4 @@
+-- | Simulates the @isDefined@ Java method. <http://docs.oracle.com/javase/6/docs/api/java/lang/Character.html#isIdentifierIgnorable%28int%29>
 module Language.Java.Character.IsIdentifierIgnorable
 (
   IsIdentifierIgnorable(..)
@@ -9,6 +10,7 @@ import Data.Word
 import Data.Set(Set)
 import qualified Data.Set as S
 
+-- | Instances simulate Java characters and provide a decision on simulating @isIdentifierIgnorable@.
 class Enum c => IsIdentifierIgnorable c where
   isIdentifierIgnorable ::
     c

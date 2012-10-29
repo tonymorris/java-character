@@ -1,3 +1,4 @@
+-- | Simulates the @isDefined@ Java method. <http://docs.oracle.com/javase/6/docs/api/java/lang/Character.html#isLetterOrDigit%28int%29>
 module Language.Java.Character.IsLetterOrDigit
 (
   IsLetterOrDigit(..)
@@ -9,6 +10,7 @@ import Data.Word
 import Data.Set(Set)
 import qualified Data.Set as S
 
+-- | Instances simulate Java characters and provide a decision on simulating @isLetterOrDigit@.
 class Enum c => IsLetterOrDigit c where
   isLetterOrDigit ::
     c

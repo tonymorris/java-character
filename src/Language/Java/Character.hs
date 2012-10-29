@@ -1,3 +1,4 @@
+-- | Simulates methods of @java.lang.Character@. <http://docs.oracle.com/javase/6/docs/api/java/lang/Character.html>
 module Language.Java.Character(module C) where
 
 import Language.Java.Character.IsDefined as C

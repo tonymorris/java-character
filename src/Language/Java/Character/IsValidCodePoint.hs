@@ -1,3 +1,4 @@
+-- | Simulates the @isDefined@ Java method. <http://docs.oracle.com/javase/6/docs/api/java/lang/Character.html#isValidCodePoint%28int%29>
 module Language.Java.Character.IsValidCodePoint
 (
   IsValidCodePoint(..)
@@ -9,6 +10,7 @@ import Data.Word
 import Data.Set(Set)
 import qualified Data.Set as S
 
+-- | Instances simulate Java characters and provide a decision on simulating @isValidCodePoint@.
 class Enum c => IsValidCodePoint c where
   isValidCodePoint ::
     c
