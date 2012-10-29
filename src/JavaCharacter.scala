@@ -19,7 +19,7 @@ object JavaCharacter {
     }).mkString("\n, ") + "\n]"
     
   def main(args: Array[String]) {   
-    val l = (0 to 200000).toList
+    val l = (0 to 2000000).toList
     val m = classOf[java.lang.Character].getMethod(args(0), classOf[Int])
     val r = letterGroupsToHaskell[Int](x => m.invoke(null, x.asInstanceOf[java.lang.Integer]).asInstanceOf[Boolean], l)
     println(r)

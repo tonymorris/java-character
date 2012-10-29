@@ -56,6 +56,6 @@ isValidCodePointSet ::
   Set a
 isValidCodePointSet =
   let r = [
-            [0..200000]
+            [0..1114111]
           ]
   in S.fromList . concat $ r

@@ -56,6 +56,14 @@ isSpaceCharSet ::
   Set a
 isSpaceCharSet =
   let r = [
-            [65536..200000]
+            [32]
+          , [160]
+          , [5760]
+          , [6158]
+          , [8192..8203]
+          , [8232..8233]
+          , [8239]
+          , [8287]
+          , [12288]
           ]
   in S.fromList . concat $ r
