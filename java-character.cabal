@@ -39,6 +39,9 @@ Library
                     Language.Java.Character.IsJavaIdentifierPart
                     Language.Java.Character.IsJavaIdentifierStart
                     Language.Java.Character.IsLetter
+                    Language.Java.Character.IsLetterOrDigit
+                    Language.Java.Character.IsLowerCase
+                    Language.Java.Character.IsMirrored
 
   GHC-Options:      
                    -Wall

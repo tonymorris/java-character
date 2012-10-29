@@ -7,3 +7,6 @@ import Language.Java.Character.IsIsoControl as C
 import Language.Java.Character.IsJavaIdentifierPart as C
 import Language.Java.Character.IsJavaIdentifierStart as C
 import Language.Java.Character.IsLetter as C
+import Language.Java.Character.IsLetterOrDigit as C
+import Language.Java.Character.IsLowerCase as C
+import Language.Java.Character.IsMirrored as C
