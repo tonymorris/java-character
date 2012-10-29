@@ -1,5 +1,3 @@
-import reflect.Method
-
 object JavaCharacter {
   def letterGroups[A](p: A => Boolean, x: List[A]): List[(A, A)] =
     x match {
