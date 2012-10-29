@@ -48,6 +48,8 @@ Library
                     Language.Java.Character.IsUnicodeIdentifierPart
                     Language.Java.Character.IsUnicodeIdentifierStart
                     Language.Java.Character.IsUpperCase
+                    Language.Java.Character.IsValidCodePoint
+                    Language.Java.Character.IsWhitespace
 
   GHC-Options:
                    -Wall

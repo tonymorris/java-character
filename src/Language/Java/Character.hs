@@ -16,3 +16,5 @@ import Language.Java.Character.IsTitleCase as C
 import Language.Java.Character.IsUnicodeIdentifierPart as C
 import Language.Java.Character.IsUnicodeIdentifierStart as C
 import Language.Java.Character.IsUpperCase as C
+import Language.Java.Character.IsValidCodePoint as C
+import Language.Java.Character.IsWhitespace as C
