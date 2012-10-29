@@ -33,6 +33,7 @@ Library
   Exposed-Modules:
                     Language.Java.Character
                     Language.Java.Character.IsDefined
+                    Language.Java.Character.IsDigit
 
   GHC-Options:      
                    -Wall
