@@ -35,6 +35,9 @@ Library
                     Language.Java.Character.IsDefined
                     Language.Java.Character.IsDigit
                     Language.Java.Character.IsIdentifierIgnorable
+                    Language.Java.Character.IsIsoControl
+                    Language.Java.Character.IsJavaIdentifierPart
+                    Language.Java.Character.IsJavaIdentifierStart
 
   GHC-Options:      
                    -Wall
