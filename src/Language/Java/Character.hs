@@ -6,3 +6,4 @@ import Language.Java.Character.IsIdentifierIgnorable as C
 import Language.Java.Character.IsIsoControl as C
 import Language.Java.Character.IsJavaIdentifierPart as C
 import Language.Java.Character.IsJavaIdentifierStart as C
+import Language.Java.Character.IsLetter as C

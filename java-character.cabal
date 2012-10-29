@@ -38,6 +38,7 @@ Library
                     Language.Java.Character.IsIsoControl
                     Language.Java.Character.IsJavaIdentifierPart
                     Language.Java.Character.IsJavaIdentifierStart
+                    Language.Java.Character.IsLetter
 
   GHC-Options:      
                    -Wall
