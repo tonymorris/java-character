@@ -1,0 +1,6 @@
+:set -isrc
+:l src/M.hs
+:m + Test.QuickCheck
+:set prompt ">> "
+:set -Wall
+
