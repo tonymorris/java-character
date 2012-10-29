@@ -21,7 +21,8 @@ Flag                small_base
 
 Library
   Build-Depends:
-                    base < 5 && >= 3
+                      base < 5 && >= 3
+                    , containers <= 0.4.0.0
 
   GHC-Options:
                     -Wall
