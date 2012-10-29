@@ -1,4 +1,4 @@
--- | Simulates the @isDefined@ Java method. <http://docs.oracle.com/javase/6/docs/api/java/lang/Character.html#isWhitespace%28int%29>
+-- | Simulates the @isWhitespace@ Java method. <http://docs.oracle.com/javase/6/docs/api/java/lang/Character.html#isWhitespace%28int%29>
 module Language.Java.Character.IsWhitespace
 (
   IsWhitespace(..)

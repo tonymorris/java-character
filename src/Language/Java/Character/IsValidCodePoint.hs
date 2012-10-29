@@ -1,4 +1,4 @@
--- | Simulates the @isDefined@ Java method. <http://docs.oracle.com/javase/6/docs/api/java/lang/Character.html#isValidCodePoint%28int%29>
+-- | Simulates the @isValidCodePoint@ Java method. <http://docs.oracle.com/javase/6/docs/api/java/lang/Character.html#isValidCodePoint%28int%29>
 module Language.Java.Character.IsValidCodePoint
 (
   IsValidCodePoint(..)

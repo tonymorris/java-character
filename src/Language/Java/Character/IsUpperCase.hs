@@ -1,4 +1,4 @@
--- | Simulates the @isDefined@ Java method. <http://docs.oracle.com/javase/6/docs/api/java/lang/Character.html#isUpperCase%28int%29>
+-- | Simulates the @isUpperCase@ Java method. <http://docs.oracle.com/javase/6/docs/api/java/lang/Character.html#isUpperCase%28int%29>
 module Language.Java.Character.IsUpperCase
 (
   IsUpperCase(..)
