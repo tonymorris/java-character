@@ -42,8 +42,11 @@ Library
                     Language.Java.Character.IsLetterOrDigit
                     Language.Java.Character.IsLowerCase
                     Language.Java.Character.IsMirrored
+                    Language.Java.Character.IsSpaceChar
+                    Language.Java.Character.IsSupplementaryCodePoint
+                    Language.Java.Character.IsTitleCase
 
-  GHC-Options:      
+  GHC-Options:
                    -Wall
                    -O2
                    -funbox-strict-fields
