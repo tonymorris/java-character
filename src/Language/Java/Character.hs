@@ -13,3 +13,6 @@ import Language.Java.Character.IsMirrored as C
 import Language.Java.Character.IsSpaceChar as C
 import Language.Java.Character.IsSupplementaryCodePoint as C
 import Language.Java.Character.IsTitleCase as C
+import Language.Java.Character.IsUnicodeIdentifierPart as C
+import Language.Java.Character.IsUnicodeIdentifierStart as C
+import Language.Java.Character.IsUpperCase as C

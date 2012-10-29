@@ -45,6 +45,9 @@ Library
                     Language.Java.Character.IsSpaceChar
                     Language.Java.Character.IsSupplementaryCodePoint
                     Language.Java.Character.IsTitleCase
+                    Language.Java.Character.IsUnicodeIdentifierPart
+                    Language.Java.Character.IsUnicodeIdentifierStart
+                    Language.Java.Character.IsUpperCase
 
   GHC-Options:
                    -Wall
