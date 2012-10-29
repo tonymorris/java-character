@@ -53,6 +53,5 @@ Library
 
   GHC-Options:
                    -Wall
-                   -O2
                    -funbox-strict-fields
 
