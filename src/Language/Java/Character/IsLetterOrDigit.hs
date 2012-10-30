@@ -5,10 +5,9 @@ module Language.Java.Character.IsLetterOrDigit
 ) where
 
 import Data.Char
-import Data.Fixed
 import Data.Word
-import Data.Set(Set)
-import qualified Data.Set as S
+import Data.Set.Diet(Diet)
+import qualified Data.Set.Diet as S
 
 -- | Instances simulate Java characters and provide a decision on simulating @isLetterOrDigit@.
 class Enum c => IsLetterOrDigit c where
@@ -49,13 +48,9 @@ instance IsLetterOrDigit Word64 where
   isLetterOrDigit c =
     c `S.member` isLetterOrDigitSet
 
-instance HasResolution a => IsLetterOrDigit (Fixed a) where
-  isLetterOrDigit c =
-    c `S.member` isLetterOrDigitSet
-
 isLetterOrDigitSet ::
   (Num a, Enum a, Ord a) =>
-  Set a
+  Diet a
 isLetterOrDigitSet =
   let r = [
             [48..57]

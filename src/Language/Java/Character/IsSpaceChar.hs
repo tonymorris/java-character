@@ -5,10 +5,9 @@ module Language.Java.Character.IsSpaceChar
 ) where
 
 import Data.Char
-import Data.Fixed
 import Data.Word
-import Data.Set(Set)
-import qualified Data.Set as S
+import Data.Set.Diet(Diet)
+import qualified Data.Set.Diet as S
 
 -- | Instances simulate Java characters and provide a decision on simulating @isSpaceChar@.
 class Enum c => IsSpaceChar c where
@@ -49,13 +48,9 @@ instance IsSpaceChar Word64 where
   isSpaceChar c =
     c `S.member` isSpaceCharSet
 
-instance HasResolution a => IsSpaceChar (Fixed a) where
-  isSpaceChar c =
-    c `S.member` isSpaceCharSet
-
 isSpaceCharSet ::
   (Num a, Enum a, Ord a) =>
-  Set a
+  Diet a
 isSpaceCharSet =
   let r = [
             [32]

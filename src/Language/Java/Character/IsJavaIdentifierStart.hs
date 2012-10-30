@@ -5,10 +5,9 @@ module Language.Java.Character.IsJavaIdentifierStart
 ) where
 
 import Data.Char
-import Data.Fixed
 import Data.Word
-import Data.Set(Set)
-import qualified Data.Set as S
+import Data.Set.Diet(Diet)
+import qualified Data.Set.Diet as S
 
 -- | Instances simulate Java characters and provide a decision on simulating @isJavaIdentifierStart@.
 class Enum c => IsJavaIdentifierStart c where
@@ -49,13 +48,9 @@ instance IsJavaIdentifierStart Word64 where
   isJavaIdentifierStart c =
     c `S.member` isJavaIdentifierStartSet
 
-instance HasResolution a => IsJavaIdentifierStart (Fixed a) where
-  isJavaIdentifierStart c =
-    c `S.member` isJavaIdentifierStartSet
-
 isJavaIdentifierStartSet ::
   (Num a, Enum a, Ord a) =>
-  Set a
+  Diet a
 isJavaIdentifierStartSet =
   let r = [
             [36]

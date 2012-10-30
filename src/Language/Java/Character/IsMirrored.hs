@@ -5,10 +5,9 @@ module Language.Java.Character.IsMirrored
 ) where
 
 import Data.Char
-import Data.Fixed
 import Data.Word
-import Data.Set(Set)
-import qualified Data.Set as S
+import Data.Set.Diet(Diet)
+import qualified Data.Set.Diet as S
 
 -- | Instances simulate Java characters and provide a decision on simulating @isMirrored@.
 class Enum c => IsMirrored c where
@@ -49,13 +48,9 @@ instance IsMirrored Word64 where
   isMirrored c =
     c `S.member` isMirroredSet
 
-instance HasResolution a => IsMirrored (Fixed a) where
-  isMirrored c =
-    c `S.member` isMirroredSet
-
 isMirroredSet ::
   (Num a, Enum a, Ord a) =>
-  Set a
+  Diet a
 isMirroredSet =
   let r = [
             [40..41]

@@ -5,10 +5,9 @@ module Language.Java.Character.IsDigit
 ) where
 
 import Data.Char hiding (isDigit)
-import Data.Fixed
 import Data.Word
-import Data.Set(Set)
-import qualified Data.Set as S
+import Data.Set.Diet(Diet)
+import qualified Data.Set.Diet as S
 
 -- | Instances simulate Java characters and provide a decision on simulating @isDigit@.
 class Enum c => IsDigit c where
@@ -49,13 +48,9 @@ instance IsDigit Word64 where
   isDigit c =
     c `S.member` isDigitSet
 
-instance HasResolution a => IsDigit (Fixed a) where
-  isDigit c =
-    c `S.member` isDigitSet
-
 isDigitSet ::
   (Num a, Enum a, Ord a) =>
-  Set a
+  Diet a
 isDigitSet =
   let r = [
             [48..57]

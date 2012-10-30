@@ -5,10 +5,9 @@ module Language.Java.Character.IsLowerCase
 ) where
 
 import Data.Char
-import Data.Fixed
 import Data.Word
-import Data.Set(Set)
-import qualified Data.Set as S
+import Data.Set.Diet(Diet)
+import qualified Data.Set.Diet as S
 
 -- | Instances simulate Java characters and provide a decision on simulating @IsLowerCase@.
 class Enum c => IsLowerCase c where
@@ -49,13 +48,9 @@ instance IsLowerCase Word64 where
   isLowerCase c =
     c `S.member` isLowerCaseSet
 
-instance HasResolution a => IsLowerCase (Fixed a) where
-  isLowerCase c =
-    c `S.member` isLowerCaseSet
-
 isLowerCaseSet ::
   (Num a, Enum a, Ord a) =>
-  Set a
+  Diet a
 isLowerCaseSet =
   let r = [
             [97..122]

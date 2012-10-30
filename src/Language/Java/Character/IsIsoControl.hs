@@ -5,10 +5,9 @@ module Language.Java.Character.IsIsoControl
 ) where
 
 import Data.Char
-import Data.Fixed
 import Data.Word
-import Data.Set(Set)
-import qualified Data.Set as S
+import Data.Set.Diet(Diet)
+import qualified Data.Set.Diet as S
 
 -- | Instances simulate Java characters and provide a decision on simulating @isISOControl@.
 class Enum c => IsIsoControl c where
@@ -49,13 +48,9 @@ instance IsIsoControl Word64 where
   isIsoControl c =
     c `S.member` isIsoControlSet
 
-instance HasResolution a => IsIsoControl (Fixed a) where
-  isIsoControl c =
-    c `S.member` isIsoControlSet
-
 isIsoControlSet ::
   (Num a, Enum a, Ord a) =>
-  Set a
+  Diet a
 isIsoControlSet =
   let r = [
             [0..31]

@@ -5,10 +5,9 @@ module Language.Java.Character.IsLetter
 ) where
 
 import Data.Char hiding (isLetter)
-import Data.Fixed
 import Data.Word
-import Data.Set(Set)
-import qualified Data.Set as S
+import Data.Set.Diet(Diet)
+import qualified Data.Set.Diet as S
 
 -- | Instances simulate Java characters and provide a decision on simulating @isLetter@.
 class Enum c => IsLetter c where
@@ -49,13 +48,9 @@ instance IsLetter Word64 where
   isLetter c =
     c `S.member` isLetterSet
 
-instance HasResolution a => IsLetter (Fixed a) where
-  isLetter c =
-    c `S.member` isLetterSet
-
 isLetterSet ::
   (Num a, Enum a, Ord a) =>
-  Set a
+  Diet a
 isLetterSet =
   let r = [
             [65..90]

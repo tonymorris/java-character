@@ -5,10 +5,9 @@ module Language.Java.Character.IsSupplementaryCodePoint
 ) where
 
 import Data.Char
-import Data.Fixed
 import Data.Word
-import Data.Set(Set)
-import qualified Data.Set as S
+import Data.Set.Diet(Diet)
+import qualified Data.Set.Diet as S
 
 -- | Instances simulate Java characters and provide a decision on simulating @isSupplementaryCodePoint@.
 class Enum c => IsSupplementaryCodePoint c where
@@ -49,13 +48,9 @@ instance IsSupplementaryCodePoint Word64 where
   isSupplementaryCodePoint c =
     c `S.member` isSupplementaryCodePointSet
 
-instance HasResolution a => IsSupplementaryCodePoint (Fixed a) where
-  isSupplementaryCodePoint c =
-    c `S.member` isSupplementaryCodePointSet
-
 isSupplementaryCodePointSet ::
   (Num a, Enum a, Ord a) =>
-  Set a
+  Diet a
 isSupplementaryCodePointSet =
   let r = [
             [36]

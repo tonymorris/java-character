@@ -5,10 +5,9 @@ module Language.Java.Character.IsIdentifierIgnorable
 ) where
 
 import Data.Char
-import Data.Fixed
 import Data.Word
-import Data.Set(Set)
-import qualified Data.Set as S
+import Data.Set.Diet(Diet)
+import qualified Data.Set.Diet as S
 
 -- | Instances simulate Java characters and provide a decision on simulating @isIdentifierIgnorable@.
 class Enum c => IsIdentifierIgnorable c where
@@ -49,13 +48,9 @@ instance IsIdentifierIgnorable Word64 where
   isIdentifierIgnorable c =
     c `S.member` isIdentifierIgnorableSet
 
-instance HasResolution a => IsIdentifierIgnorable (Fixed a) where
-  isIdentifierIgnorable c =
-    c `S.member` isIdentifierIgnorableSet
-
 isIdentifierIgnorableSet ::
   (Num a, Enum a, Ord a) =>
-  Set a
+  Diet a
 isIdentifierIgnorableSet =
   let r = [
             [0..8]

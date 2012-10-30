@@ -5,10 +5,9 @@ module Language.Java.Character.IsWhitespace
 ) where
 
 import Data.Char
-import Data.Fixed
 import Data.Word
-import Data.Set(Set)
-import qualified Data.Set as S
+import Data.Set.Diet(Diet)
+import qualified Data.Set.Diet as S
 
 -- | Instances simulate Java characters and provide a decision on simulating @isWhitespace@.
 class Enum c => IsWhitespace c where
@@ -49,13 +48,9 @@ instance IsWhitespace Word64 where
   isWhitespace c =
     c `S.member` isWhitespaceSet
 
-instance HasResolution a => IsWhitespace (Fixed a) where
-  isWhitespace c =
-    c `S.member` isWhitespaceSet
-
 isWhitespaceSet ::
   (Num a, Enum a, Ord a) =>
-  Set a
+  Diet a
 isWhitespaceSet =
   let r = [
             [9..13]

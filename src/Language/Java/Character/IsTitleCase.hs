@@ -5,10 +5,9 @@ module Language.Java.Character.IsTitleCase
 ) where
 
 import Data.Char
-import Data.Fixed
 import Data.Word
-import Data.Set(Set)
-import qualified Data.Set as S
+import Data.Set.Diet(Diet)
+import qualified Data.Set.Diet as S
 
 -- | Instances simulate Java characters and provide a decision on simulating @isTitleCase@.
 class Enum c => IsTitleCase c where
@@ -49,13 +48,9 @@ instance IsTitleCase Word64 where
   isTitleCase c =
     c `S.member` isTitleCaseSet
 
-instance HasResolution a => IsTitleCase (Fixed a) where
-  isTitleCase c =
-    c `S.member` isTitleCaseSet
-
 isTitleCaseSet ::
   (Num a, Enum a, Ord a) =>
-  Set a
+  Diet a
 isTitleCaseSet =
   let r = [
             [453]

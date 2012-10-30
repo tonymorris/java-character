@@ -5,10 +5,9 @@ module Language.Java.Character.IsDefined
 ) where
 
 import Data.Char
-import Data.Fixed
 import Data.Word
-import Data.Set(Set)
-import qualified Data.Set as S
+import Data.Set.Diet(Diet)
+import qualified Data.Set.Diet as S
 
 -- | Instances simulate Java characters and provide a decision on simulating @isDefined@.
 class Enum c => IsDefined c where
@@ -49,13 +48,9 @@ instance IsDefined Word64 where
   isDefined c =
     c `S.member` isDefinedSet
 
-instance HasResolution a => IsDefined (Fixed a) where
-  isDefined c =
-    c `S.member` isDefinedSet
-
 isDefinedSet ::
   (Num a, Enum a, Ord a) =>
-  Set a
+  Diet a
 isDefinedSet =
   let r = [
             [0..566]

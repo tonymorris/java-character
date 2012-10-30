@@ -5,10 +5,9 @@ module Language.Java.Character.IsUpperCase
 ) where
 
 import Data.Char
-import Data.Fixed
 import Data.Word
-import Data.Set(Set)
-import qualified Data.Set as S
+import Data.Set.Diet(Diet)
+import qualified Data.Set.Diet as S
 
 -- | Instances simulate Java characters and provide a decision on simulating @isUpperCase@.
 class Enum c => IsUpperCase c where
@@ -49,13 +48,9 @@ instance IsUpperCase Word64 where
   isUpperCase c =
     c `S.member` isUpperCaseSet
 
-instance HasResolution a => IsUpperCase (Fixed a) where
-  isUpperCase c =
-    c `S.member` isUpperCaseSet
-
 isUpperCaseSet ::
   (Num a, Enum a, Ord a) =>
-  Set a
+  Diet a
 isUpperCaseSet =
   let r = [
             [65..90]

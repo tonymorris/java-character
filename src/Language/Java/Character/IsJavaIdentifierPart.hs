@@ -5,10 +5,9 @@ module Language.Java.Character.IsJavaIdentifierPart
 ) where
 
 import Data.Char
-import Data.Fixed
 import Data.Word
-import Data.Set(Set)
-import qualified Data.Set as S
+import Data.Set.Diet(Diet)
+import qualified Data.Set.Diet as S
 
 -- | Instances simulate Java characters and provide a decision on simulating @isJavaIdentifierPart@.
 class Enum c => IsJavaIdentifierPart c where
@@ -49,13 +48,9 @@ instance IsJavaIdentifierPart Word64 where
   isJavaIdentifierPart c =
     c `S.member` isJavaIdentifierPartSet
 
-instance HasResolution a => IsJavaIdentifierPart (Fixed a) where
-  isJavaIdentifierPart c =
-    c `S.member` isJavaIdentifierPartSet
-
 isJavaIdentifierPartSet ::
   (Num a, Enum a, Ord a) =>
-  Set a
+  Diet a
 isJavaIdentifierPartSet =
   let r = [
             [0..8]

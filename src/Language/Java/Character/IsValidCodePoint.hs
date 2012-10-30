@@ -5,10 +5,9 @@ module Language.Java.Character.IsValidCodePoint
 ) where
 
 import Data.Char
-import Data.Fixed
 import Data.Word
-import Data.Set(Set)
-import qualified Data.Set as S
+import Data.Set.Diet(Diet)
+import qualified Data.Set.Diet as S
 
 -- | Instances simulate Java characters and provide a decision on simulating @isValidCodePoint@.
 class Enum c => IsValidCodePoint c where
@@ -49,13 +48,9 @@ instance IsValidCodePoint Word64 where
   isValidCodePoint c =
     c `S.member` isValidCodePointSet
 
-instance HasResolution a => IsValidCodePoint (Fixed a) where
-  isValidCodePoint c =
-    c `S.member` isValidCodePointSet
-
 isValidCodePointSet ::
   (Num a, Enum a, Ord a) =>
-  Set a
+  Diet a
 isValidCodePointSet =
   let r = [
             [0..1114111]
