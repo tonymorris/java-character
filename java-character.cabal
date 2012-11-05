@@ -51,7 +51,3 @@ Library
                     Language.Java.Character.IsValidCodePoint
                     Language.Java.Character.IsWhitespace
 
-  GHC-Options:
-                   -Wall
-                   -funbox-strict-fields
-
